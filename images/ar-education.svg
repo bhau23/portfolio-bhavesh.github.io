@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0033"/>
+      <stop offset="50%" style="stop-color:#2d004d"/>
+      <stop offset="100%" style="stop-color:#4a0080"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- 3D cube wireframe (AR element) -->
+  <g transform="translate(400,200)" opacity="0.8">
+    <!-- Back face -->
+    <polygon points="-40,-60 60,-60 60,40 -40,40" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.4" transform="translate(20,-20)"/>
+    <!-- Front face -->
+    <polygon points="-40,-60 60,-60 60,40 -40,40" fill="none" stroke="#00d4ff" stroke-width="2"/>
+    <!-- Connecting lines -->
+    <line x1="-40" y1="-60" x2="-20" y2="-80" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+    <line x1="60" y1="-60" x2="80" y2="-80" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+    <line x1="60" y1="40" x2="80" y2="20" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+    <line x1="-40" y1="40" x2="-20" y2="20" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+    <!-- AR scanning lines -->
+    <line x1="-120" y1="0" x2="-60" y2="0" stroke="#ff004f" stroke-width="2" stroke-dasharray="6,3" opacity="0.6"/>
+    <line x1="80" y1="0" x2="140" y2="0" stroke="#ff004f" stroke-width="2" stroke-dasharray="6,3" opacity="0.6"/>
+    <!-- Floating elements -->
+    <circle cx="-100" cy="-40" r="8" fill="#00d4ff" opacity="0.3"/>
+    <circle cx="120" cy="-50" r="6" fill="#ff004f" opacity="0.3"/>
+    <circle cx="110" cy="50" r="10" fill="#00d4ff" opacity="0.2"/>
+    <!-- Book/Education icon -->
+    <g transform="translate(0,0)">
+      <rect x="-25" y="-15" width="50" height="35" rx="3" fill="none" stroke="#fff" stroke-width="2" opacity="0.7"/>
+      <line x1="0" y1="-15" x2="0" y2="20" stroke="#fff" stroke-width="1.5" opacity="0.7"/>
+      <line x1="-20" y1="-5" x2="-5" y2="-5" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+      <line x1="-20" y1="2" x2="-5" y2="2" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+      <line x1="-20" y1="9" x2="-5" y2="9" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+      <line x1="5" y1="-5" x2="20" y2="-5" stroke="#ff004f" stroke-width="1.5" opacity="0.6"/>
+      <line x1="5" y1="2" x2="20" y2="2" stroke="#ff004f" stroke-width="1.5" opacity="0.6"/>
+      <line x1="5" y1="9" x2="20" y2="9" stroke="#ff004f" stroke-width="1.5" opacity="0.6"/>
+    </g>
+  </g>
+  <!-- Floating particles -->
+  <g opacity="0.3">
+    <circle cx="150" cy="120" r="4" fill="#00d4ff"/>
+    <circle cx="650" cy="180" r="3" fill="#ff004f"/>
+    <circle cx="200" cy="320" r="5" fill="#00d4ff"/>
+    <circle cx="600" cy="300" r="4" fill="#ff004f"/>
+    <circle cx="500" cy="100" r="3" fill="#00d4ff"/>
+  </g>
+  <!-- Title -->
+  <text x="400" y="400" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="bold">AR for Education</text>
+  <text x="400" y="440" text-anchor="middle" fill="#ababab" font-family="Arial, sans-serif" font-size="18">Augmented Reality Learning Experience</text>
+  <!-- Tech badges -->
+  <rect x="270" y="465" width="60" height="28" rx="14" fill="#00d4ff" opacity="0.3"/>
+  <text x="300" y="484" text-anchor="middle" fill="#00d4ff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AR</text>
+  <rect x="345" y="465" width="80" height="28" rx="14" fill="#ff004f" opacity="0.3"/>
+  <text x="385" y="484" text-anchor="middle" fill="#ff004f" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Unity</text>
+  <rect x="440" y="465" width="110" height="28" rx="14" fill="#00d4ff" opacity="0.3"/>
+  <text x="495" y="484" text-anchor="middle" fill="#00d4ff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Education</text>
+</svg>
