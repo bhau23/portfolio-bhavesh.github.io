@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d0d14"/>
+      <stop offset="1" stop-color="#12081a"/>
+    </linearGradient>
+    <linearGradient id="ac" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff004f"/>
+      <stop offset="1" stop-color="#ff7a45"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g font-family="Consolas, monospace" font-size="16" fill="#ff004f" opacity="0.18">
+    <text x="40" y="60">01001101 10110010 01101</text>
+    <text x="480" y="120">11010110 00101101 1010</text>
+    <text x="120" y="540">10110100 11001010 0110</text>
+    <text x="520" y="480">01101001 10010110 1101</text>
+  </g>
+  <!-- shield -->
+  <path d="M 400 120 L 520 165 V 300 Q 520 400 400 460 Q 280 400 280 300 V 165 Z" fill="none" stroke="url(#ac)" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M 355 295 L 390 330 L 455 250" fill="none" stroke="#ff7a45" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="400" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">THREAT CLASSIFICATION</text>
+  <text x="400" y="556" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#9aa0a6" text-anchor="middle">97.72% Accuracy · CICIDS2017 · Random Forest</text>
+</svg>

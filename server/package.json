@@ -1,0 +1,9 @@
+{
+  "name": "bhavesh-portfolio-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Secure micro-API for bhaveshai.in — Gemini chat proxy + direct email enquiries. Deploy this folder to Vercel (Root Directory: server).",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}
