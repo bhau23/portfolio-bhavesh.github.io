@@ -11,11 +11,6 @@ export const API_BASE = (
   "https://portfolio-bhavesh-github-io.vercel.app"
 ).replace(/\/+$/, "");
 
-/* The server instructs the model to emit this block when an enquiry is
-   confirmed; the client parses it, submits, and strips it from display. */
-export const ENQUIRY_OPEN = "[[ENQUIRY]]";
-export const ENQUIRY_CLOSE = "[[/ENQUIRY]]";
-
 export const THINKING_LINES = [
   "wait buddy, I'm here… ⚡",
   "cooking up something smart 🍳",
@@ -28,16 +23,20 @@ export const THINKING_LINES = [
 
 export type ChatMsg = { role: "user" | "model"; text: string };
 
-export async function askBot(history: ChatMsg[]): Promise<string> {
+export async function askBot(
+  history: ChatMsg[]
+): Promise<{ reply: string; booked: boolean }> {
   const res = await fetch(`${API_BASE}/api/chat`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ messages: history.slice(-20) }),
   });
   if (!res.ok) throw new Error(`API ${res.status}`);
-  const data = (await res.json()) as { reply?: string };
+  const data = (await res.json()) as { reply?: string; booked?: boolean };
   if (!data.reply) throw new Error("Empty reply");
-  return data.reply;
+  /* defensive: never show a stray token even if the server missed it */
+  const reply = data.reply.replace(/\[\[ENQUIRY\]\][\s\S]*?(\[\[\/ENQUIRY\]\]|$)/g, "").trim();
+  return { reply, booked: Boolean(data.booked) };
 }
 
 export async function submitEnquiry(fields: {

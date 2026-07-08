@@ -2,14 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import MatrixAvatar from "@/components/MatrixAvatar";
-import {
-  askBot,
-  submitEnquiry,
-  ENQUIRY_OPEN,
-  ENQUIRY_CLOSE,
-  THINKING_LINES,
-  type ChatMsg,
-} from "@/lib/chatbot";
+import { askBot, THINKING_LINES, type ChatMsg } from "@/lib/chatbot";
 
 const GREETING: ChatMsg = {
   role: "model",
@@ -77,32 +70,9 @@ export default function ChatBot() {
 
     setBusy(true);
     try {
-      let reply = await askBot(history);
-
-      /* enquiry token → submit to the same Google Sheet as the contact form */
-      const start = reply.indexOf(ENQUIRY_OPEN);
-      const end = reply.indexOf(ENQUIRY_CLOSE);
-      if (start !== -1 && end > start) {
-        const payload = reply.slice(start + ENQUIRY_OPEN.length, end);
-        reply = (reply.slice(0, start) + reply.slice(end + ENQUIRY_CLOSE.length)).trim();
-        try {
-          const data = JSON.parse(payload) as {
-            Name?: string; email?: string; Service?: string; Message?: string;
-          };
-          await submitEnquiry({
-            name: data.Name ?? "",
-            email: data.email ?? "",
-            service: data.Service ?? "",
-            message: data.Message ?? "",
-            source: "BHAV.AI chatbot",
-          });
-          setBooked(true);
-        } catch {
-          reply +=
-            "\n\n(Hmm, my registration wire sparked ⚡ — mind using the Contact page as backup?)";
-        }
-      }
-
+      /* the server handles enquiry detection + email sending itself */
+      const { reply, booked: didBook } = await askBot(history);
+      if (didBook) setBooked(true);
       setMsgs([...history, { role: "model", text: reply }]);
     } catch {
       setMsgs([
