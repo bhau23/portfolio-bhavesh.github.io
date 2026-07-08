@@ -4,10 +4,12 @@
  * live in this bundle anymore.
  */
 
-/* After deploying the server/ folder to Vercel, put your project URL here
-   (or set NEXT_PUBLIC_API_BASE in .env.local / the GitHub Action). */
-export const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE || "https://bhavesh-portfolio-api.vercel.app";
+/* The deployed micro-API (server/ folder on Vercel). Can be overridden
+   with NEXT_PUBLIC_API_BASE in .env.local / the GitHub Action. */
+export const API_BASE = (
+  process.env.NEXT_PUBLIC_API_BASE ||
+  "https://portfolio-bhavesh-github-io.vercel.app"
+).replace(/\/+$/, "");
 
 /* The server instructs the model to emit this block when an enquiry is
    confirmed; the client parses it, submits, and strips it from display. */

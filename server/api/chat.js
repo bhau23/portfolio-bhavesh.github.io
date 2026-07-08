@@ -84,6 +84,7 @@ module.exports = async (req, res) => {
     if (!reply) throw new Error("Empty reply");
     return res.status(200).json({ reply });
   } catch (err) {
+    console.error("Chat failed:", err && err.message ? err.message : err);
     return res.status(502).json({ error: "Upstream error" });
   }
 };

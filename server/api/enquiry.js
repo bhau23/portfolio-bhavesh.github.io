@@ -88,7 +88,9 @@ module.exports = async (req, res) => {
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
-      auth: { user, pass },
+      // app passwords are shown by Google as "xxxx xxxx xxxx xxxx" —
+      // strip any spaces so a copy-paste with spaces still works
+      auth: { user, pass: pass.replace(/\s+/g, "") },
     });
     await transporter.sendMail({
       from: `"BHAV.AI — bhaveshai.in" <${user}>`,
@@ -99,6 +101,7 @@ module.exports = async (req, res) => {
     });
     return res.status(200).json({ ok: true });
   } catch (err) {
+    console.error("Enquiry email failed:", err && err.message ? err.message : err);
     return res.status(502).json({ error: "Email failed" });
   }
 };
