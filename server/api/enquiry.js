@@ -20,6 +20,12 @@ module.exports = async (req, res) => {
     const msg = err && err.message ? err.message : String(err);
     console.error("Enquiry email failed:", msg);
     if (msg === "Invalid fields") return res.status(400).json({ error: msg });
-    return res.status(502).json({ error: "Email failed" });
+    /* non-sensitive classification to make failures diagnosable:
+       EAUTH = bad user/app-password · ECONNECTION/ETIMEDOUT = network */
+    return res.status(502).json({
+      error: "Email failed",
+      code: (err && err.code) || null,
+      rc: (err && err.responseCode) || null,
+    });
   }
 };
