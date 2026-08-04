@@ -10,12 +10,16 @@ const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk" }
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bhaveshai.in"),
   title: {
     default: "BHAVESH.K — AI / ML Engineer",
     template: "%s — BHAVESH.K",
   },
   description:
     "Bhavesh Kanoje — AI/ML Engineer building production-grade Generative AI, Computer Vision and Agentic AI systems. Oracle Certified Generative AI Professional.",
+  verification: {
+    google: "_xRzPe8IDxZLQVv9C3V9Wc9CC50IrcCG3wHrXWQuNms",
+  },
 };
 
 export default function RootLayout({
